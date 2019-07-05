@@ -1,0 +1,41 @@
+@import vars
+
+.root
+  padding: $card-margin-bottom 0
+
+.row
+  display: flex
+  flex-wrap: nowrap
+  margin-bottom: (-$card-margin-bottom)
+
+  > div
+    &:last-child
+      padding-right: inherit
+
+  // @media screen and (max-width: 600px)
+
+  // > div
+  //   overflow-y: hidden
+
+  //   > div
+  //     display: flex
+  //     flex-wrap: wrap
+
+  //     > *:last-child
+  //       margin-right: 0
+
+  // @media screen and (max-width: 600px)
+  //   > div
+  //     display: flex
+  //     flex-wrap: nowrap
+  //     margin-bottom: -100px
+  //     overflow-x: auto
+  //     -webkit-overflow-scrolling: touch
+  //     white-space: nowrap
+
+  //     > div
+  //       padding-bottom: 100px
+  //       align-items: flex-start
+  //       display: flex
+  //       padding-right: inherit
+  //       flex-wrap: nowrap

@@ -1,0 +1,62 @@
+@import '~antd/dist/antd.less';
+
+@heading-2-size: 2.1rem;
+
+@primary-color: #1890FF;
+
+@btn-font-size-lg: @font-size-lg;
+@btn-font-size-sm: 1.6rem;
+
+@btn-padding-base: 0 50px;
+@btn-height-base: 40px;
+@heading-color: #333333;
+@text-color: #113654;
+
+a {
+  color: #1864ab;
+}
+
+.ant-avatar-lg-string,
+.ant-avatar-sm-string,
+.ant-avatar-string {
+  transform: scale(1) translateX(-50%);
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.ant-btn {
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.typography-title(@fontSize; @lineHeight) {
+  font-weight: 700;
+  // margin-top: .85em;
+  // margin-bottom: 0;
+  margin-top: 0;
+}
+
+.typography-title-1() {
+  .typography-title(@heading-1-size, 1.23);
+
+  @media screen and (max-width: 800px) {
+    font-size: 2.6rem;
+  }
+
+  @media screen and (max-width: 360px) {
+    font-size: 2.4rem;
+  }
+}
+.typography-title-2() {
+  .typography-title(@heading-2-size, 1.35);
+}
+.typography-title-3() {
+  .typography-title(@heading-3-size, 1.35);
+}
+.typography-title-4() {
+  .typography-title(@heading-4-size, 1.4);
+}
+
+.ant-tooltip {
+  font-size: 1.2rem
+}

@@ -1,0 +1,112 @@
+@import '../../styles/colors'
+@import '../../styles/vars'
+
+%padding
+  padding-left: $padding-horizontal
+  padding-right: $padding-horizontal
+
+  @media screen and (max-width: $mobile)
+    padding-left: $padding-horizontal-mobile
+    padding-right: $padding-horizontal-mobile
+
+.content
+  padding-bottom: $padding-container-vertical
+  padding-top: $padding-container-vertical
+
+  @media screen and (max-width: $mobile)
+    padding-bottom: $padding-container-vertical-mobile
+    padding-top: $padding-container-vertical-mobile
+
+  > .container
+    &:first-child
+      &:before
+        content: none
+
+.header,
+.footer
+  // align-items: center
+  // background-color: $black-1
+  border-radius: 14px
+  display: flex
+  justify-content: space-between
+
+.container
+  padding-top: 2rem
+
+  &:not(.noPadding)
+    padding-bottom: 1rem
+
+  &:before
+    background-color: $white-2
+    content: ''
+    display: block
+    height: 1px
+    position: relative
+    top: -2rem
+
+  > .container
+    &:before
+      content: none
+
+.fixed
+  margin: auto
+  max-width: $container-lg + $padding-horizontal * 2
+  width: 100%
+
+.header
+  align-items: flex-end
+  // @media screen and (max-width: $mobile)
+
+.footer
+  font-size: 13px
+  margin-top: 4px
+
+  @media screen and (max-width: $mobile)
+    border-radius: 0
+
+.header,
+.footer
+  min-height: 65px
+  padding-bottom: $header-padding-vertical
+  padding-top: $header-padding-vertical
+
+.header,
+.container,
+.footer
+  @extend %padding
+
+.background
+  background-color: $background-color
+  padding-top: 0rem
+  padding-left: 0
+  padding-right: 0
+
+  &:not(.noPadding)
+    padding-bottom: 0
+
+  &:before
+    content: none
+
+  + .container
+    &:before
+      content: none
+
+.border
+  padding-top: 1rem
+
+  &.noPadding
+    padding-top: 0
+
+  &:before
+    content: none
+
+.fullWidth
+  margin-left: -$padding-horizontal
+  margin-right: -$padding-horizontal 
+
+  @media screen and (max-width: $mobile)
+    margin-left: -$padding-horizontal-mobile
+    margin-right: -$padding-horizontal-mobile
+
+.padding
+  @extend %padding
