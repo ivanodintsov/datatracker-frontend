@@ -2,13 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
 import { Typography } from 'antd';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faFont, faMicrophoneAlt, faVideo, faFileVideo, faStickyNote,
-  faThumbtack, faFileAudio, faFile, faImage,
-  faFileContract, faLocationArrow, faGamepad,
-  faReply, faForward, faPen,
-} from '@fortawesome/free-solid-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import {
+//   faFont, faMicrophoneAlt, faVideo, faFileVideo, faStickyNote,
+//   faThumbtack, faFileAudio, faFile, faImage,
+//   faFileContract, faLocationArrow, faGamepad,
+//   faReply, faForward, faPen,
+// } from '@fortawesome/free-solid-svg-icons';
 import css from './MessagesStatistics.sass';
 import { Container, HorizontalScroll } from '../Container';
 import { withLoading } from '../Loading';
@@ -17,13 +17,14 @@ const { Title } = Typography;
 
 const StatisticsIcon = ({ ...props }) => (
   <span className={css.icon}>
-    <FontAwesomeIcon {...props} />
+    {/* <FontAwesomeIcon {...props} /> */}
   </span>
 );
 
 const StatisticsItem = ({ icon, title, number }) => (
   <div className={css.item}>
-    <StatisticsIcon icon={icon} />
+    <StatisticsIcon //icon={icon}
+    />
     <div className={css.text}>
       <span>{title}</span>
       <span>{number}</span>
@@ -37,81 +38,81 @@ const MessageList = withLoading({}, ({ data }) => (
       <div>
         <StatisticsItem
           title='Text'
-          icon={faFont}
+          //icon={faFont}
           number={R.propOr(0, 'text', data)}
         />
         <StatisticsItem
           title='Video'
-          icon={faFileVideo}
+          //icon={faFileVideo}
           number={R.propOr(0, 'video', data)}
         />
         <StatisticsItem
           title='Audio'
-          icon={faFileAudio}
+          //icon={faFileAudio}
           number={R.propOr(0, 'audio', data)}
         />
         <StatisticsItem
           title='Contact'
-          icon={faFileContract}
+          //icon={faFileContract}
           number={R.propOr(0, 'contact', data)}
         />
         <StatisticsItem
           title='Reply'
-          icon={faReply}
+          //icon={faReply}
           number={R.propOr(0, 'reply', data)}
         />
       </div>
       <div>
         <StatisticsItem
           title='Sticker'
-          icon={faStickyNote}
+          //icon={faStickyNote}
           number={R.propOr(0, 'sticker', data)}
         />
         <StatisticsItem
           title='Voice'
-          icon={faMicrophoneAlt}
+          //icon={faMicrophoneAlt}
           number={R.propOr(0, 'voice', data)}
         />
         <StatisticsItem
           title='Document'
-          icon={faFile}
+          //icon={faFile}
           number={R.propOr(0, 'document', data)}
         />
         <StatisticsItem
           title='Location'
-          icon={faLocationArrow}
+          //icon={faLocationArrow}
           number={R.propOr(0, 'location', data)}
         />
         <StatisticsItem
           title='Forward'
-          icon={faForward}
+          //icon={faForward}
           number={R.propOr(0, 'forward', data)}
         />
       </div>
       <div>
         <StatisticsItem
           title='Video note'
-          icon={faVideo}
+          //icon={faVideo}
           number={R.propOr(0, 'video_note', data)}
         />
         <StatisticsItem
           title='Pinned'
-          icon={faThumbtack}
+          //icon={faThumbtack}
           number={R.propOr(0, 'pinned', data)}
         />
         <StatisticsItem
           title='Photo'
-          icon={faImage}
+          //icon={faImage}
           number={R.propOr(0, 'photo', data)}
         />
         <StatisticsItem
           title='Game'
-          icon={faGamepad}
+          //icon={faGamepad}
           number={R.propOr(0, 'game', data)}
         />
         <StatisticsItem
           title='Edit'
-          icon={faPen}
+          //icon={faPen}
           number={R.propOr(0, 'edit', data)}
         />
       </div>

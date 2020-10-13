@@ -4,15 +4,15 @@ import nextRedirect from 'next-redirect';
 import * as R from 'ramda';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import WithRedirect from '../lib/withRedirect';
-import renderError from '../lib/renderError';
-import ChatMember from '../components/ChatMember';
-import { getFullName } from '../utils/selectors';
-import Layout from '../components/Layout';
-import { Content, Container } from '../components/Container';
-import MemberInfo from '../components/ChatMember/MemberInfo/MemberInfo';
-import HeadMeta from '../components/HeadMeta';
-import { baseUrl } from '../config';
+import WithRedirect from '../../../../lib/withRedirect';
+import renderError from '../../../../lib/renderError';
+import ChatMember from '../../../../components/ChatMember';
+import { getFullName } from '../../../../utils/selectors';
+import Layout from '../../../../components/Layout';
+import { Content, Container } from '../../../../components/Container';
+import MemberInfo from '../../../../components/ChatMember/MemberInfo/MemberInfo';
+import HeadMeta from '../../../../components/HeadMeta';
+import { baseUrl } from '../../../../config';
 
 const chatMemberInfoQuery = gql`
   query chatMemberInfo($chat: Float!, $user: Int!) {
@@ -88,8 +88,8 @@ const chatMemberInfoQueryRender = ({
           loading={loading}
           data={{
             data: R.propOr({}, 'chatMember', data),
-            chatId,
-            memberId,
+            chatId: parseInt(chatId, 10),
+            memberId: parseInt(memberId, 10),
           }}
         />
       </Container>
@@ -137,8 +137,8 @@ export default class ChatMemberPage extends WithRedirect {
         query={chatMemberInfoQuery}
         errorPolicy='all'
         variables={{
-          chat: chatId,
-          user: memberId,
+          chat: parseInt(chatId, 10),
+          user: parseInt(memberId, 10),
         }}
       >
         {renderError(chatMemberInfoQueryRender, this.props, this.props)}
@@ -154,8 +154,8 @@ export default class ChatMemberPage extends WithRedirect {
         query={chatMemberFullContainerQuery}
         ssr={false}
         variables={{
-          chat: chatId,
-          user: memberId,
+          chat: parseInt(chatId, 10),
+          user: parseInt(memberId, 10),
         }}
       >
         {({
@@ -174,6 +174,7 @@ export default class ChatMemberPage extends WithRedirect {
   }
 
   render() {
+    console.log(this.props)
     return (
       <Layout>
         <Content>

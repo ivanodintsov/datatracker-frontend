@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
 import * as R from 'ramda';
-import { baseUrl } from '../config';
-import WithRedirect from '../lib/withRedirect';
-import renderError from '../lib/renderError';
-import Layout from '../components/Layout';
-import { ChatInfo, ChatFn } from '../components/Chat';
-import HeadMeta from '../components/HeadMeta';
-import { Content, Container } from '../components/Container';
+import { baseUrl } from '../../../config';
+import WithRedirect from '../../../lib/withRedirect';
+import renderError from '../../../lib/renderError';
+import Layout from '../../../components/Layout';
+import { ChatInfo, ChatFn } from '../../../components/Chat';
+import HeadMeta from '../../../components/HeadMeta';
+import { Content, Container } from '../../../components/Container';
 
 export const chatMainContainerQuery = gql`
   query chatMainContainer($chat: Float!) {
@@ -53,15 +53,6 @@ export const chatFullContainerQuery = gql`
       avg_hourly {
         total
       }
-    }
-
-    chatMembers(id: $chat) {
-      user {
-        first_name
-        last_name
-      }
-      last_message_date
-      online
     }
 
     chatHourlyStatistics(chat: $chat) {
@@ -149,7 +140,7 @@ export default class ChatPage extends WithRedirect {
         <Content>
           <Query
             query={chatMainContainerQuery}
-            variables={{ chat: chatId }}
+            variables={{ chat: parseInt(chatId, 10) }}
             errorPolicy='all'
           >
             {renderError(chatMainQueryRender, this.props, this.props)}
@@ -157,7 +148,7 @@ export default class ChatPage extends WithRedirect {
           <Query
             query={chatFullContainerQuery}
             ssr={false}
-            variables={{ chat: chatId }}
+            variables={{ chat: parseInt(chatId, 10) }}
           >
             {ChatFn}
           </Query>
