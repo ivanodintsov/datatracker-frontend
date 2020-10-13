@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
+    "@apollo/client": "^3.2.4",
+    "@apollo/react-ssr": "^4.0.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "antd": "^3.26.18",

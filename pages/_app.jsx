@@ -4,7 +4,7 @@ import Router from 'next/router';
 import ReactGA from 'react-ga';
 // import { config } from '@fortawesome/fontawesome-svg-core';
 import ApolloProvider from 'react-apollo/ApolloProvider';
-import withApolloClient from '../lib/withApolloClient';
+import withApolloClient from '../lib/oldWithApolloClient';
 import { ga } from '../config';
 
 // import '@fortawesome/fontawesome-svg-core/styles.css';
