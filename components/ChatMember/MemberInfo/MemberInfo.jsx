@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Link from 'next/link';
 import * as R from 'ramda';
 import moment from 'moment-timezone';
-import { faClock } from '@fortawesome/free-solid-svg-icons';
+// import { faClock } from '@fortawesome/free-solid-svg-icons';
 import { Badge, Typography, Avatar } from 'antd';
 import { withLoading } from '../../Loading';
 import css from './MemberInfo.sass';
@@ -44,9 +44,9 @@ export class MemberInfoView extends Component {
                 </a>
               </Link>
               <Title level={1} className={css.title}>{title.fullName}</Title>
-              {lastMessageDate && (
+              {/* {lastMessageDate && (
                 <Tooltip icon={faClock}>{moment(lastMessageDate).fromNow()}</Tooltip>
-              )}
+              )} */}
             </div>
             <Badge
               status={isOnline && 'success'}
