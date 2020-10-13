@@ -1,7 +1,7 @@
 /* eslint-disable react/no-multi-comp */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Query } from 'react-apollo';
+import Query from 'react-apollo/Query';
 import gql from 'graphql-tag';
 import * as R from 'ramda';
 import { baseUrl } from '../../../config';

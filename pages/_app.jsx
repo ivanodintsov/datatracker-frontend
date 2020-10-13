@@ -3,7 +3,7 @@ import App, { Container } from 'next/app';
 import Router from 'next/router';
 import ReactGA from 'react-ga';
 // import { config } from '@fortawesome/fontawesome-svg-core';
-import { ApolloProvider } from 'react-apollo';
+import ApolloProvider from 'react-apollo/ApolloProvider';
 import withApolloClient from '../lib/withApolloClient';
 import { ga } from '../config';
 

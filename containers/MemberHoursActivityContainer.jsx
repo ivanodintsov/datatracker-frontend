@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
-import { Query } from 'react-apollo';
+import Query from 'react-apollo/Query';
 import gql from 'graphql-tag';
 import MemberHoursActivity from '../components/MemberHoursActivity';
 

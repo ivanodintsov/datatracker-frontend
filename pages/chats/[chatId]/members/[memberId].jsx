@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import nextRedirect from 'next-redirect';
 import * as R from 'ramda';
-import { Query } from 'react-apollo';
+import Query from 'react-apollo/Query';
 import gql from 'graphql-tag';
 import WithRedirect from '../../../../lib/withRedirect';
 import renderError from '../../../../lib/renderError';
@@ -135,6 +135,7 @@ export default class ChatMemberPage extends WithRedirect {
     return (
       <Query
         query={chatMemberInfoQuery}
+        ssr={false}
         errorPolicy='all'
         variables={{
           chat: parseInt(chatId, 10),
