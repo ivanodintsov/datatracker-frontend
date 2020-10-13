@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Typography } from 'antd';
+import Typography from 'antd/es/typography';
 import { Container } from '../../Container';
 import CardsList from './CardsList';
 

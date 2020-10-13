@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tooltip as TooltipAntd } from 'antd';
+import TooltipAntd from 'antd/es/tooltip';
 import css from './Tooltip.sass';
 
 const Tooltip = ({ children, icon }) => (

@@ -3,6 +3,14 @@ const withCss = require('@zeit/next-css');
 const cssLoaderConfig = require('@zeit/next-css/css-loader-config');
 const CleanCSSPlugin = require('less-plugin-clean-css');
 const defaultGetLocalIdent = require('css-loader/lib/getLocalIdent');
+const withTM = require('next-transpile-modules')([
+  'antd/es',
+  'rc-pagination',
+  'rc-calendar',
+  'rc-util',
+  'rc-tooltip',
+  'css-animation',
+]);
 
 const withLess = (config, options) => {
   const { dev, isServer } = options;
@@ -50,7 +58,8 @@ const withLess = (config, options) => {
   return config;
 };
 
-module.exports = {
+module.exports = withTM({
+  transpileModules: ['pretty-bytes'],
   publicRuntimeConfig: {
     NODE_ENV: process.env.NODE_ENV,
   },
@@ -70,4 +79,4 @@ module.exports = {
     })).webpack(config, options);
     return withLess(sassConfig, options);
   },
-};
+});

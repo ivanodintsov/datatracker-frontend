@@ -1,7 +1,6 @@
 import React from 'react';
-import {
-  Button, Typography,
-} from 'antd';
+import Typography from 'antd/es/typography';
+import Button from 'antd/es/button';
 import { Container, Content } from '../Container';
 import { addBotUrl } from '../../config';
 import css from './Home.sass';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
-import { Typography } from 'antd';
+import Typography from 'antd/es/typography';
 import { withLoading } from '../../Loading';
 import css from './MemberStatistics.sass';
 

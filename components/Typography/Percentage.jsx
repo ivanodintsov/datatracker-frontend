@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
-import { Icon } from 'antd';
+import Icon from 'antd/es/icon';
 import Changes from './Changes';
 import css from './Percentage.sass';
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as R from 'ramda';
-import { Typography } from 'antd';
+import Typography from 'antd/es/typography';
 import FontSizeOutlined from '@ant-design/icons/FontSizeOutlined';
 import VideoCameraFilled from '@ant-design/icons/VideoCameraFilled';
 import SoundFilled from '@ant-design/icons/SoundFilled';
