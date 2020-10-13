@@ -6,8 +6,8 @@ const { NODE_ENV } = publicRuntimeConfig;
 export const prod = NODE_ENV === 'production';
 
 export const graphqlConfig = {
-  // uri: 'https://api.datatracker.site/client',
-  uri: 'http://192.168.1.197:3030/client',
+  uri: process.env.NEXT_PUBLIC_GRAPHQL_API_URI,
+  // uri: 'http://192.168.1.197:3030/client',
 };
 
 export const reactEmojione = {
@@ -18,9 +18,9 @@ export const ga = {
   tag: 'UA-71585569-2',
 };
 
-export const addBotUrl = 'https://telegram.me/datatracker_bot?start=true';
+export const addBotUrl = process.env.NEXT_PUBLIC_ADD_BOT_URL;
 
-export const baseUrl = prod ? 'https://beta.datatracker.site' : 'http://192.168.1.197:3000';
+export const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
 
 export default {
   graphqlConfig,
