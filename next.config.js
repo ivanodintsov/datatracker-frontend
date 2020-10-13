@@ -4,6 +4,7 @@ const withCss = require('@zeit/next-css');
 const cssLoaderConfig = require('@zeit/next-css/css-loader-config');
 const CleanCSSPlugin = require('less-plugin-clean-css');
 const defaultGetLocalIdent = require('css-loader/lib/getLocalIdent');
+const path = require('path');
 const withTM = require('next-transpile-modules')([
   'antd/es',
   'rc-pagination',
@@ -15,6 +16,9 @@ const withTM = require('next-transpile-modules')([
 
 const withLess = (config, options) => {
   const { dev, isServer } = options;
+
+  config.resolve.alias['~'] = path.join(__dirname);
+
   // eslint-disable-next-line no-param-reassign
   options.defaultLoaders.less = cssLoaderConfig(config, {
     extensions: ['less'],
