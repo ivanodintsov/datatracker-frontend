@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 const withSass = require('@zeit/next-sass');
 const withCss = require('@zeit/next-css');
 const cssLoaderConfig = require('@zeit/next-css/css-loader-config');
@@ -49,6 +50,11 @@ const withLess = (config, options) => {
       },
     ],
   });
+
+  config.plugins.push(new webpack.IgnorePlugin({
+    resourceRegExp: /^\.\/locale$/,
+    contextRegExp: /moment$/
+  }));
 
   config.module.rules.push({
     test: /\.less$/,
