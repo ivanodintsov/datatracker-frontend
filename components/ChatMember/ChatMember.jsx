@@ -8,8 +8,8 @@ import getHoursData from '../../utils/getHoursData';
 
 export class ChatMember extends Component {
   static propTypes = {
-    chatId: PropTypes.string.isRequired,
-    memberId: PropTypes.string.isRequired,
+    chatId: PropTypes.number.isRequired,
+    memberId: PropTypes.number.isRequired,
     loading: PropTypes.bool.isRequired,
     data: PropTypes.shape({}),
     error: PropTypes.shape({}),
