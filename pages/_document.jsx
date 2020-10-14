@@ -1,5 +1,5 @@
 import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript, Html } from 'next/document';
 
 class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -9,9 +9,8 @@ class CustomDocument extends Document {
 
   render() {
     return (
-      <html lang='en'>
+      <Html lang='en'>
         <Head>
-          <meta name='viewport' content='width=device-width, initial-scale=1.0' />
           <link rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png?v=2b0QPQw3ol' />
           <link rel='icon' type='image/png' sizes='32x32' href='/favicon/favicon-32x32.png?v=2b0QPQw3ol' />
           <link rel='icon' type='image/png' sizes='16x16' href='/favicon/favicon-16x16.png?v=2b0QPQw3ol' />
@@ -26,7 +25,7 @@ class CustomDocument extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     );
   }
 }
