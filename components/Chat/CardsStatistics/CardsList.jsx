@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import Card from '../../Card';
 import Percentage from '../../Typography/Percentage';
 import Changes from '../../Typography/Changes';

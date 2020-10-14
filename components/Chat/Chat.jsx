@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment-timezone';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import List from 'antd/es/list';
 import Avatar from 'antd/es/avatar';
 import { Container } from '../Container';

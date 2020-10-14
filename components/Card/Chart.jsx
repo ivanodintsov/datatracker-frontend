@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import {
   LineChart, ResponsiveContainer, YAxis, Line,
 } from 'recharts';

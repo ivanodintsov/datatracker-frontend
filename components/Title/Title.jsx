@@ -1,7 +1,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import Typography from 'antd/es/typography';
 import Badge from 'antd/es/badge';
 import Avatar from 'antd/es/avatar';

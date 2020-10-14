@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 
 export const getFullName = (data) => {
   // eslint-disable-next-line no-underscore-dangle

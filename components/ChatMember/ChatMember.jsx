@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as R from 'ramda';
-import MemberInfo from './MemberInfo';
+import * as R from '~/lib/ramda';
 import MessagesStatistics from '../MessagesStatistics';
 import HoursActivity from '../HoursActivity';
 import { Container } from '../Container';

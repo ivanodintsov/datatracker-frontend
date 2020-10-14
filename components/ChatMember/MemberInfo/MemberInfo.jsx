@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import moment from 'moment-timezone';
 // import { faClock } from '@fortawesome/free-solid-svg-icons';
 import Typography from 'antd/es/typography';

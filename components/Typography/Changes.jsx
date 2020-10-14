@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import css from './Percentage.sass';
 
 class Changes extends PureComponent {

@@ -1,5 +1,5 @@
 import numeral from 'numeral';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 
 const format = x => numeral(x).format('0.[0]a');
 const unFormat = R.ifElse(
