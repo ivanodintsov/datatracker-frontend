@@ -14,6 +14,10 @@ const withTM = require('next-transpile-modules')([
   'css-animation',
   'ramda/es',
 ]);
+const withPlugins = require('next-compose-plugins');
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
 
 const withLess = (config, options) => {
   const { dev, isServer } = options;
@@ -69,25 +73,31 @@ const withLess = (config, options) => {
   return config;
 };
 
-module.exports = withTM({
-  transpileModules: ['pretty-bytes'],
-  publicRuntimeConfig: {
-    NODE_ENV: process.env.NODE_ENV,
-  },
-  webpack: (config, options) => {
-    const sassConfig = withSass(withCss({
-      cssModules: true,
-      cssLoaderOptions: {
-        localIdentName: '[hash:base64:5]',
-        getLocalIdent: (loaderContext, localIdentName, localName, options) => {
-          if (loaderContext.resourcePath.includes('node_modules')) {
-            return localName;
-          }
+module.exports = withPlugins(
+  [
+    withTM,
+    withBundleAnalyzer,
+  ],
+  {
+    transpileModules: ['pretty-bytes'],
+    publicRuntimeConfig: {
+      NODE_ENV: process.env.NODE_ENV,
+    },
+    webpack: (config, options) => {
+      const sassConfig = withSass(withCss({
+        cssModules: true,
+        cssLoaderOptions: {
+          localIdentName: '[hash:base64:5]',
+          getLocalIdent: (loaderContext, localIdentName, localName, options) => {
+            if (loaderContext.resourcePath.includes('node_modules')) {
+              return localName;
+            }
 
-          return defaultGetLocalIdent(loaderContext, localIdentName, localName, options);
+            return defaultGetLocalIdent(loaderContext, localIdentName, localName, options);
+          },
         },
-      },
-    })).webpack(config, options);
-    return withLess(sassConfig, options);
+      })).webpack(config, options);
+      return withLess(sassConfig, options);
+    },
   },
-});
+);
