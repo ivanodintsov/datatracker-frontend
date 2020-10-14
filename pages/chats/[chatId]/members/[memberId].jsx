@@ -1,9 +1,13 @@
 import React from 'react';
+import dynamic from 'next/dynamic'
 import { withApollo } from '~/lib/withApolloClient';
 import Layout from '~/components/Layout';
 import { Content } from '~/components/Container';
 import ChatMemberInfoContainer from '~/containers/ChatMemberInfoContainer';
-import ChatMemberStatisticsContainer from '~/containers/ChatMemberStatisticsContainer';
+const ChatMemberStatisticsContainer = dynamic(
+  () => import('~/containers/ChatMemberStatisticsContainer'),
+  { ssr: false },
+);
 
 const Page = () => {
   return (
