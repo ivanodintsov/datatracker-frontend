@@ -1,6 +1,18 @@
 {
-  "presets": ["next/babel"],
+  "presets": [
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "useBuiltIns": "entry",
+          "corejs": 3
+        }
+      }
+    ]
+  ],
   "plugins": [
-    ["import", { "libraryName": "antd", "style": false }]
+    ["import", { "libraryName": "antd", "style": false }],
+    "@babel/plugin-transform-spread",
+    "@babel/plugin-transform-arrow-functions"
   ]
 }
