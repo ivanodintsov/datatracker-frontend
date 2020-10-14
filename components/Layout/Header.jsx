@@ -1,6 +1,6 @@
 import React from 'react';
-import Logo from '../Logo';
 import { Header as HeaderContainer } from '../Container';
+import Logo from '../Logo';
 
 export const Header = () => (
   <HeaderContainer>
