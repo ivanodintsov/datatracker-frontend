@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import moment from 'moment-timezone';
 // import { faClock } from '@fortawesome/free-solid-svg-icons';
-import { Badge, Typography, Avatar } from 'antd';
+import Typography from 'antd/es/typography';
+import Badge from 'antd/es/badge';
+import Avatar from 'antd/es/avatar';
 import { withLoading } from '../../Loading';
 import css from './MemberInfo.sass';
 import { getFullName } from '../../../utils/selectors';
@@ -15,8 +17,8 @@ const { Title } = Typography;
 
 export class MemberInfoView extends Component {
   static propTypes = {
-    chatId: PropTypes.string.isRequired,
-    memberId: PropTypes.string.isRequired,
+    chatId: PropTypes.number.isRequired,
+    memberId: PropTypes.number.isRequired,
     data: PropTypes.shape({
       user: PropTypes.shape({}).isRequired,
       last_message_date: PropTypes.number,

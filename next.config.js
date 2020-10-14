@@ -1,11 +1,25 @@
+const webpack = require('webpack');
 const withSass = require('@zeit/next-sass');
 const withCss = require('@zeit/next-css');
 const cssLoaderConfig = require('@zeit/next-css/css-loader-config');
 const CleanCSSPlugin = require('less-plugin-clean-css');
 const defaultGetLocalIdent = require('css-loader/lib/getLocalIdent');
+const path = require('path');
+const withTM = require('next-transpile-modules')([
+  'antd/es',
+  'rc-pagination',
+  'rc-calendar',
+  'rc-util',
+  'rc-tooltip',
+  'css-animation',
+  'ramda/es',
+]);
 
 const withLess = (config, options) => {
   const { dev, isServer } = options;
+
+  config.resolve.alias['~'] = path.join(__dirname);
+
   // eslint-disable-next-line no-param-reassign
   options.defaultLoaders.less = cssLoaderConfig(config, {
     extensions: ['less'],
@@ -42,6 +56,11 @@ const withLess = (config, options) => {
     ],
   });
 
+  config.plugins.push(new webpack.IgnorePlugin({
+    resourceRegExp: /^\.\/locale$/,
+    contextRegExp: /moment$/
+  }));
+
   config.module.rules.push({
     test: /\.less$/,
     use: options.defaultLoaders.less,
@@ -50,7 +69,8 @@ const withLess = (config, options) => {
   return config;
 };
 
-module.exports = {
+module.exports = withTM({
+  transpileModules: ['pretty-bytes'],
   publicRuntimeConfig: {
     NODE_ENV: process.env.NODE_ENV,
   },
@@ -70,4 +90,4 @@ module.exports = {
     })).webpack(config, options);
     return withLess(sassConfig, options);
   },
-};
+});

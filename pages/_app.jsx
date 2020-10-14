@@ -1,18 +1,13 @@
 import React from 'react';
-import App, { Container } from 'next/app';
+import App from 'next/app';
 import Router from 'next/router';
+import Head from 'next/head'
 import ReactGA from 'react-ga';
-// import { config } from '@fortawesome/fontawesome-svg-core';
-import { ApolloProvider } from 'react-apollo';
-import withApolloClient from '../lib/withApolloClient';
-import { ga } from '../config';
+import { ga } from '~/config';
 
-// import '@fortawesome/fontawesome-svg-core/styles.css';
 import 'normalize.css';
 import './ant.less';
 import './_app.sass';
-
-// config.autoAddCss = false;
 
 Router.events.on('routeChangeStart', (url) => {
   ReactGA.pageview(url);
@@ -25,15 +20,17 @@ class CustomApp extends App {
   }
 
   render() {
-    const { Component, pageProps, apolloClient } = this.props;
+    const { Component, pageProps } = this.props;
+
     return (
-      <Container>
-        <ApolloProvider client={apolloClient}>
-          <Component {...pageProps} />
-        </ApolloProvider>
-      </Container>
+      <>
+        <Head>
+          <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        </Head>
+        <Component {...pageProps} />
+      </>
     );
   }
 }
 
-export default withApolloClient(CustomApp);
+export default CustomApp;

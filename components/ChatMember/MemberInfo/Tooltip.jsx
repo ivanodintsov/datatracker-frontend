@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Tooltip as TooltipAntd } from 'antd';
+import TooltipAntd from 'antd/es/tooltip';
 import css from './Tooltip.sass';
 
 const Tooltip = ({ children, icon }) => (
@@ -9,7 +8,11 @@ const Tooltip = ({ children, icon }) => (
     <TooltipAntd title='Last message' trigger='hover'>
       <TooltipAntd title='Last message' trigger='click'>
         <span className={css.tooltip}>
-          {/* {icon && (<FontAwesomeIcon icon={icon} className={css.icon} />)} */}
+          {icon && (
+            <div className={css.icon}>
+              {icon}
+            </div>
+          )}
           <span className={css.text}>{children}</span>
         </span>
       </TooltipAntd>

@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
+    "@apollo/client": "^3.2.4",
+    "@apollo/react-ssr": "^4.0.0",
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "antd": "^3.26.18",
@@ -52,6 +55,7 @@
     "eslint-plugin-react": "^7.21.4",
     "less": "^3.12.2",
     "less-loader": "^4.1.0",
-    "less-plugin-clean-css": "^1.5.1"
+    "less-plugin-clean-css": "^1.5.1",
+    "next-transpile-modules": "^4.1.0"
   }
 }

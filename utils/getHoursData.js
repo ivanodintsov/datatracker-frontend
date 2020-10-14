@@ -1,4 +1,4 @@
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import kFormatNumber from './kFormatNumber';
 
 export const formatStats = (data) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography } from 'antd';
+import Typography from 'antd/es/typography';
 import { withLoading } from '../../Loading';
 
 const { Text } = Typography;

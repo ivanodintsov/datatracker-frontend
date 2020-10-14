@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as R from 'ramda';
+import * as R from '~/lib/ramda';
 import Card from '../../Card';
 import Percentage from '../../Typography/Percentage';
 import Changes from '../../Typography/Changes';
@@ -85,7 +85,7 @@ const CardsList = (props) => {
 CardsList.propTypes = {
   data: PropTypes.shape({
     chat: PropTypes.shape({
-      members_count: PropTypes.string,
+      members_count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       statistics: PropTypes.shape({
         total: PropTypes.string,
       }),
@@ -98,7 +98,7 @@ CardsList.propTypes = {
     }),
     chatStatistics4days: PropTypes.arrayOf(PropTypes.shape({
       subtract_change: PropTypes.shape({
-        members_count: PropTypes.string,
+        members_count: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       }),
       percentage_change: PropTypes.shape({
         total: PropTypes.string,

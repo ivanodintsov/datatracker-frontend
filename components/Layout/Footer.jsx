@@ -1,7 +1,7 @@
 import React from 'react';
 import { addBotUrl } from '../../config';
-import Logo from '../Logo';
 import { Footer as FooterContainer } from '../Container';
+import Logo from '../Logo';
 
 export const Footer = () => (
   <FooterContainer>
