@@ -46,7 +46,7 @@ const HeadMeta = ({
 };
 
 HeadMeta.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   url: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   photo: PropTypes.string,
