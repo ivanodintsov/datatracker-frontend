@@ -4,26 +4,12 @@ import PropTypes from 'prop-types';
 import Query from 'react-apollo/Query';
 import gql from 'graphql-tag';
 import * as R from 'ramda';
-import { baseUrl } from '../../../config';
+import { withApollo } from '~/lib/withApolloClient';
 import WithRedirect from '../../../lib/withRedirect';
-import renderError from '../../../lib/renderError';
 import Layout from '../../../components/Layout';
-import { ChatInfo, ChatFn } from '../../../components/Chat';
-import HeadMeta from '../../../components/HeadMeta';
-import { Content, Container } from '../../../components/Container';
-
-export const chatMainContainerQuery = gql`
-  query chatMainContainer($chat: Float!) {
-    chat(id: $chat) {
-      title
-      description
-      photo {
-        small_file
-        big_file
-      }
-    }
-  }
-`;
+import { ChatFn } from '../../../components/Chat';
+import { Content } from '~/components/Container';
+import ChatMainInfoContainer from '~/containers/ChatMainInfoContainer';
 
 export const chatFullContainerQuery = gql`
   query chatFullContainer($chat: Float!) {
@@ -84,41 +70,7 @@ export const chatFullContainerQuery = gql`
   }
 `;
 
-const getTitle = data => R.pathOr('Chat', ['chat', 'title'], data);
-
-const chatMainQueryRender = ({
-  loading,
-  error,
-  data,
-  path,
-}) => {
-  const url = `${baseUrl}${path}`;
-  const title = `${getTitle(data)} | Data Tracker`;
-  const description = R.pathOr('', ['chat', 'description'], data);
-  const photo = R.pathOr('', ['chat', 'photo', 'big_file'], data);
-
-  return (
-    <>
-      <HeadMeta url={url} title={title} description={description} photo={photo} />
-      <Container fixed>
-        <ChatInfo loading={loading} error={error} data={data} />
-      </Container>
-    </>
-  );
-};
-
-chatMainQueryRender.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  error: PropTypes.bool.isRequired,
-  path: PropTypes.string.isRequired,
-  data: PropTypes.shape({}),
-};
-
-chatMainQueryRender.defaultProps = {
-  data: undefined,
-};
-
-export default class ChatPage extends WithRedirect {
+export default withApollo(class ChatPage extends WithRedirect {
   static propTypes = {
     chatId: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
@@ -138,13 +90,7 @@ export default class ChatPage extends WithRedirect {
     return (
       <Layout>
         <Content>
-          <Query
-            query={chatMainContainerQuery}
-            variables={{ chat: parseInt(chatId, 10) }}
-            errorPolicy='all'
-          >
-            {renderError(chatMainQueryRender, this.props, this.props)}
-          </Query>
+          <ChatMainInfoContainer />
           <Query
             query={chatFullContainerQuery}
             ssr={false}
@@ -156,4 +102,4 @@ export default class ChatPage extends WithRedirect {
       </Layout>
     );
   }
-}
+})
