@@ -12,6 +12,7 @@ const withTM = require('next-transpile-modules')([
   'rc-util',
   'rc-tooltip',
   'css-animation',
+  'ramda/es',
 ]);
 
 const withLess = (config, options) => {
