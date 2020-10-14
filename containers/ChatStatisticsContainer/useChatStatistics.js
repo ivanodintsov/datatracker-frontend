@@ -67,7 +67,7 @@ export const useChatStatistics = () => {
   const chatId = parseInt(Router.query.chatId, 10);
 
   const query = useQuery(chatStatisticsQuery, {
-    ssr: true,
+    ssr: false,
     variables: {
       chat: chatId,
     },
